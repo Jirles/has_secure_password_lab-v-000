@@ -35,10 +35,14 @@ describe "Secure Password Lab App" do
     it 'the welcome page greets the user and has a button to logout if the user is logged in' do
       User.create(name: "Calypso", password: "i'macat", password_confirmation: "i'macat")
       visit root_path
+      fill_in :user_name, with: "Calypso"
+      fill_in :user_password, with: "i'macat"
+      fill_in :user_password_confirmation, with: "i'macat"
+      click_button "Submit"
 
-
-      expect(last_response.body).to include("Welcome, Calypso")
-      expect(last_response.body).to include("Logout")
+      expect(page.current_path).to include("/welcome")
+      expect(page.body).to include("Welcome, Calypso")
+      expect(page).to have_button("Logout")
     end
   end
 
