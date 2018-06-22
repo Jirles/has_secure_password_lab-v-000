@@ -32,11 +32,11 @@ describe "Secure Password Lab App" do
       expect(page).to have_field(:user_password_confirmation)
     end
 
-    it 'the welcome page greets the user and has a button to logout' do
+    it 'the welcome page greets the user and has a button to logout if the user is logged in' do
       User.create(name: "Calypso", password: "i'macat", password_confirmation: "i'macat")
       visit root_path
 
-      follow_redirect!
+
       expect(last_response.body).to include("Welcome, Calypso")
       expect(last_response.body).to include("Logout")
     end
