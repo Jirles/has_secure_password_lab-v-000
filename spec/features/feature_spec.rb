@@ -24,7 +24,7 @@ describe "Secure Password Lab App" do
     end
 
     it 'the signup page has a form for users to login by providing their name, password, and a password confirmation' do
-      visit '/signup'
+      visit signup_path
 
       expect(page).to have_selector("form")
       expect(page).to have_field(:user_name)
@@ -34,8 +34,7 @@ describe "Secure Password Lab App" do
 
     it 'the welcome page greets the user and has a button to logout' do
       User.create(name: "Calypso", password: "i'macat", password_confirmation: "i'macat")
-      params = {user: {name: "Calypso", password: "i'macat", password_confirmation: "i'macat"}}
-      post '/login', params
+      visit root_path
 
       follow_redirect!
       expect(last_response.body).to include("Welcome, Calypso")
