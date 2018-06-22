@@ -10,7 +10,7 @@ class UsersController < ApplicationController
 
   def create
     @user = User.new(name: params[:name], password: params[:password])
-    if name_present? && @user.save
+    if @user.save
       session[:user_id] = @user.id
       redirect_to welcome_path
     else
@@ -33,6 +33,6 @@ class UsersController < ApplicationController
   end
 
   def name_present?
-    params[:name] && !params[:name].empty?
+    params[:user][:name] && !params{:user}[:name].empty?
   end
 end
