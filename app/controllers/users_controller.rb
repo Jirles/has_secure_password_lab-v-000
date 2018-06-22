@@ -6,6 +6,8 @@ class UsersController < ApplicationController
   end
 
   def new
+    @user = User.new
+    @controller = 'users'
   end
 
   def create
