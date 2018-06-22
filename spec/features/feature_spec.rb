@@ -25,12 +25,12 @@ describe "Secure Password Lab App" do
 
     it 'the signup page has a form for users to login by providing their name, password, and a password confirmation' do
       visit '/signup'
-      
+
       expect(page).to have_selector("form")
       expect(page).to have_field(:user_name)
       expect(page).to have_field(:user_password)
       expect(page).to have_field(:user_password_confirmation)
-      expect(page).to have_button("Signup")
+      expect(page).to have_button("Submit")
     end
   end
 
