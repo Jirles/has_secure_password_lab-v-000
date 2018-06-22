@@ -2,6 +2,7 @@ class SessionsController < ApplicationController
 
   def new
     @user = User.new
+    @controller = 'sessions'
   end
 
   def create
