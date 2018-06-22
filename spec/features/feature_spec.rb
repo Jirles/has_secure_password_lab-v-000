@@ -30,7 +30,6 @@ describe "Secure Password Lab App" do
       expect(page).to have_field(:user_name)
       expect(page).to have_field(:user_password)
       expect(page).to have_field(:user_password_confirmation)
-      expect(page).to have_button("Submit")
     end
   end
 
