@@ -33,6 +33,6 @@ class UsersController < ApplicationController
   end
 
   def name_present?
-    params[:user][:name] && !params{:user}[:name].empty?
+    params[:user][:name] && !params[:user][:name].empty?
   end
 end
