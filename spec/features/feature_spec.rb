@@ -12,9 +12,9 @@ describe "Secure Password Lab App" do
       visit root_path
 
       expect(page).to have_selector("form")
-      expect(page).to have_field(:name)
-      expect(page).to have_field(:password)
-      expect(page).to have_field(:password_confirmation)
+      expect(page).to have_field(:user_name)
+      expect(page).to have_field(:user_password)
+      expect(page).to have_field(:user_password_confirmation)
     end
 
     it 'login page/root path also has a link to signup for new users' do
