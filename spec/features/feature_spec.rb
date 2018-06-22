@@ -33,12 +33,12 @@ describe "Secure Password Lab App" do
     end
 
     it 'the welcome page greets the user and has a button to logout' do
-      caly = User.create(name: "Calypso", password: "i'macat", password_confirmation: "i'macat")
+      User.create(name: "Calypso", password: "i'macat", password_confirmation: "i'macat")
       params = {user: {name: "Calypso", password: "i'macat", password_confirmation: "i'macat"}}
       post '/login', params
 
       follow_redirect!
-      expect(last_response.body).to include("Welcome, Caly")
+      expect(last_response.body).to include("Welcome, Calypso")
       expect(last_response.body).to include("Logout")
     end
   end
