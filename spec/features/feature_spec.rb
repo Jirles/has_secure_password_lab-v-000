@@ -31,6 +31,15 @@ describe "Secure Password Lab App" do
       expect(page).to have_field(:user_password)
       expect(page).to have_field(:user_password_confirmation)
     end
+
+    it 'the welcome page greets the user and has a button to logout' do 
+      caly = User.create(name: "Calypso", password: "i'macat", password_confirmation: "i'macat")
+      params = {user: {name: "Calypso", password: "i'macat", password_confirmation: "i'macat"}}
+      post '/login', params 
+
+      follow_redirect!
+      expect(last_response.body).to include("Welcome, Caly")
+    end 
   end
 
 end
