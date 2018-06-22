@@ -1,7 +1,8 @@
 <h1>Login</h1>
 
-<%= form_tag root_path, method: "post" do %>
-
+<%= form_for(@user) do |f| %>
+  <%= label_tag :name %>
+  <%= text_field_tag :name %>
 <% end %>
 
 <p>Don't have an account? <%= link_to "Signup", signup_path %></p>
